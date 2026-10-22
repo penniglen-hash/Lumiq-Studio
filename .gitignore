@@ -1,0 +1,13 @@
+# Geheime Schluessel nie hochladen
+.env
+.env.*
+!.env.example
+
+# Persoenliche / interne Ordner
+New folder/
+_artifact/
+netlify-upload/
+LinkedIn-Post-Generator/
+.claude/
+*.pdf
+CV*
