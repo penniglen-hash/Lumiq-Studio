@@ -291,6 +291,9 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 @media (max-width:980px){.gen-grid{grid-template-columns:1fr}}
 @media (max-width:600px){.gen .btn{width:100%}.g-hooks li{flex-direction:column}}
 
+/* Elements with the hidden attribute stay hidden even if a class sets display */
+[hidden]{display:none!important}
+
 /* Booking (Cal.com) */
 .booking-wrap{max-width:1000px;margin:0 auto;border-radius:var(--radius);border:1px solid var(--border-strong);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));overflow:hidden;box-shadow:0 0 60px -25px rgba(102,88,217,.9)}
 .booking-gate{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;padding:56px 24px}
