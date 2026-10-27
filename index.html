@@ -984,7 +984,10 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
         <a class="soc" href="#" aria-label="X"><svg><use href="#i-x"/></svg></a>
       </div>
     </div>
-    <form id="contactForm" class="cform reveal d1" novalidate>
+    <form id="contactForm" class="cform reveal d1" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="website" novalidate>
+      <input type="hidden" name="form-name" value="kontakt">
+      <input type="hidden" name="topicLabel" id="fTopicLabel">
+      <input type="hidden" name="language" id="fLanguage">
       <div class="form-row">
         <div class="form-field"><label for="fName" data-i18n="fName">Name *</label><input id="fName" name="name" required maxlength="120" autocomplete="name" aria-describedby="eName"><span class="f-err" id="eName"></span></div>
         <div class="form-field"><label for="fMail" data-i18n="fMail">E-Mail *</label><input id="fMail" name="email" type="email" required maxlength="200" autocomplete="email" aria-describedby="eMail"><span class="f-err" id="eMail"></span></div>
@@ -1004,7 +1007,7 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
       </div>
       <div class="form-field"><label for="fMsg" data-i18n="fMsg">Nachricht</label><textarea id="fMsg" name="message" maxlength="3000"></textarea></div>
       <div class="hp" aria-hidden="true"><label for="fWebsite">Website</label><input id="fWebsite" name="website" tabindex="-1" autocomplete="off"></div>
-      <label class="check"><input type="checkbox" id="fConsent" required aria-describedby="eConsent"><span data-i18n="consent">Ich habe die <button type="button" class="link-btn" data-open="privacy">Datenschutzerkl&#228;rung</button> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *</span></label>
+      <label class="check"><input type="checkbox" id="fConsent" name="consent" value="ja" required aria-describedby="eConsent"><span data-i18n="consent">Ich habe die <button type="button" class="link-btn" data-open="privacy">Datenschutzerkl&#228;rung</button> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. *</span></label>
       <span class="f-err" id="eConsent" style="margin:-12px 0 16px"></span>
       <button type="submit" class="btn btn-primary" id="fSend"><span class="f-spin" aria-hidden="true"></span><span id="fSendLabel" data-i18n="send">Erstgespr&#228;ch anfragen</span> <span class="arrow">&#8594;</span></button>
       <div class="success" id="formMsg" role="status" aria-live="polite"></div>
@@ -1105,7 +1108,7 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
     <h3>2. Hosting und Server-Logfiles</h3>
     <p>Diese Website wird bei [Hosting-Anbieter] gehostet. Beim Aufruf werden technisch notwendige Daten (z. B. IP-Adresse, Datum, Uhrzeit, Browser) in Server-Logfiles gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
     <h3>3. Kontaktformular</h3>
-    <p>Ihre Angaben aus dem Kontaktformular verarbeiten wir zur Bearbeitung Ihrer Anfrage. Die Angaben werden dazu an unser Automatisierungssystem (n8n, betrieben bei [Hosting-Anbieter]) &#252;bermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO sowie Ihre Einwilligung gem&#228;&#223; Art. 6 Abs. 1 lit. a DSGVO.</p>
+    <p>Ihre Angaben aus dem Kontaktformular verarbeiten wir zur Bearbeitung Ihrer Anfrage. Die Angaben werden dazu &#252;ber den Formulardienst unseres Hosting-Anbieters Netlify (Netlify, Inc., USA) gespeichert und uns per E-Mail weitergeleitet; [Platzhalter: Angaben zu Auftragsverarbeitung und Drittland&#252;bermittlung erg&#228;nzen]. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO sowie Ihre Einwilligung gem&#228;&#223; Art. 6 Abs. 1 lit. a DSGVO.</p>
     <h3>4. Newsletter</h3>
     <p>F&#252;r den Newsletter nutzen wir das Double-Opt-In-Verfahren. Sie k&#246;nnen Ihre Einwilligung jederzeit widerrufen, z. B. &#252;ber den Abmeldelink in jeder E-Mail. Ihre E-Mail-Adresse, Sprache und der Zeitpunkt Ihrer Einwilligung werden in unserer Datenbank bei Supabase (Supabase Inc.) gespeichert; [Platzhalter: Serverstandort und Auftragsverarbeitungsvertrag erg&#228;nzen].</p>
     <h3>4a. Terminbuchung &#252;ber Cal.com</h3><p>F&#252;r die Online-Terminbuchung nutzen wir Cal.com (Cal.com, Inc., USA). Der Kalender wird erst geladen, wenn Sie auf &#8222;Freie Termine anzeigen&#8220; klicken. Bei der Buchung werden Ihre Angaben (z. B. Name, E-Mail, gew&#228;hlter Termin) an Cal.com &#252;bermittelt und zur Durchf&#252;hrung des Termins verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. Eine &#220;bermittlung in die USA kann stattfinden; Details: [Platzhalter &#8211; Angaben zu Auftragsverarbeitung und Drittland&#252;bermittlung erg&#228;nzen].</p>
@@ -1292,7 +1295,7 @@ const EN = {
   privacyBody:`<p class="note">Placeholder texts: have them legally reviewed before publishing. Last updated: [date]</p>
     <h3>1. Controller</h3><p>Elena Cherepanova, LUMIQ STUDIO, [street, number], [postcode] D\u00FCsseldorf, email: [hallo@lumiq-studio.example]</p>
     <h3>2. Hosting and server log files</h3><p>This website is hosted by [hosting provider]. Technically necessary data (e.g. IP address, date, time, browser) is stored in server log files. Legal basis: Art. 6 (1) (f) GDPR.</p>
-    <h3>3. Contact form</h3><p>We process the data from the contact form to handle your enquiry. For this purpose the data is transmitted to our automation system (n8n, hosted by [hosting provider]). Legal basis: Art. 6 (1) (b) GDPR and your consent under Art. 6 (1) (a) GDPR.</p>
+    <h3>3. Contact form</h3><p>We process the data from the contact form to handle your enquiry. For this purpose the data is stored by the form service of our hosting provider Netlify (Netlify, Inc., USA) and forwarded to us by email; [placeholder: add data processing and third-country transfer information]. Legal basis: Art. 6 (1) (b) GDPR and your consent under Art. 6 (1) (a) GDPR.</p>
     <h3>4. Newsletter</h3><p>We use the double opt-in procedure for the newsletter. You can withdraw your consent at any time, e.g. via the unsubscribe link in every email. Your email address, language and the time of your consent are stored in our database at Supabase (Supabase Inc.); [placeholder: add server location and data processing agreement].</p>
     <h3>4a. Appointment booking via Cal.com</h3><p>For online booking we use Cal.com (Cal.com, Inc., USA). The calendar is only loaded once you click "Show available times". When you book, your details (e.g. name, email, chosen time) are transmitted to Cal.com and processed to hold the appointment. Legal basis: Art. 6 (1) (b) GDPR. Data may be transferred to the USA; details: [placeholder: add data processing and third-country transfer information].</p>
     <h3>5. Cookies</h3><p>Without consent we only use technically necessary cookies. Optional cookies (e.g. statistics) are only used with your consent (Art. 6 (1) (a) GDPR, \u00A7 25 TDDDG). You can change your choice at any time in the cookie settings.</p>
@@ -1436,11 +1439,10 @@ function calc(){
 ['ext','hrs','rate','pkg','sav'].forEach(id => $(id).addEventListener('input', calc));
 
 // ============================================================
-//  KONTAKTFORMULAR -> n8n
-//  Hier die PRODUCTION-URL des n8n-Webhooks einsetzen
-//  (n8n: Webhook-Node, Methode POST, Workflow aktiv).
+//  KONTAKTFORMULAR -> Netlify Forms (kostenlos, ohne eigenen Server)
+//  Netlify erkennt das <form name="kontakt" data-netlify="true"> beim Deploy,
+//  speichert jede Anfrage und schickt eine E-Mail-Benachrichtigung.
 // ============================================================
-const N8N_WEBHOOK_URL = "https://elenchik.app.n8n.cloud/webhook/c99b0f78-add5-4b35-aaa5-6f88a4412ca8"; // Production-URL (Workflow in n8n muss aktiv sein)
 
 const CF = {
   de:{name:"Bitte geben Sie Ihren Namen ein.", mail:"Bitte geben Sie eine g\u00FCltige E-Mail-Adresse ein.", topic:"Bitte w\u00E4hlen Sie Ihr Anliegen.",
@@ -1494,38 +1496,23 @@ $('contactForm').addEventListener('submit', async e => {
   if ($('fWebsite').value) { formNote(CF[lang].ok.replace('{name}', ''), false); form.reset(); return; } // spam bot: pretend success, send nothing
 
   const name = $('fName').value.trim();
-  const payload = {
-    name,
-    email: $('fMail').value.trim(),
-    company: $('fCompany').value.trim(),
-    topic: $('fTopic').value,
-    topicLabel: $('fTopic').selectedOptions[0].textContent.trim(),
-    message: $('fMsg').value.trim(),
-    consent: true,
-    language: lang,
-    source: 'lumiq-website',
-    page: location.href,
-    submittedAt: new Date().toISOString()
-  };
-
-  if (!/^https?:\/\//.test(N8N_WEBHOOK_URL)) { formNote(CF[lang].cfg, true); return; }
+  $('fTopicLabel').value = $('fTopic').selectedOptions[0].textContent.trim();
+  $('fLanguage').value = lang;
 
   btn.disabled = true; btn.classList.add('sending');
   $('fSendLabel').textContent = CF[lang].sending;
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 20000);
   try {
-    // Sent as a classic form post (application/x-www-form-urlencoded): browsers send it
-    // without a CORS preflight, and n8n puts every field into $json.body (name, email, ...).
-    // mode 'no-cors' = the browser delivers it but cannot read n8n's reply.
-    const body = new URLSearchParams();
-    Object.entries(payload).forEach(([k, v]) => body.append(k, String(v)));
-    await fetch(N8N_WEBHOOK_URL, {
+    // Netlify Forms: post all form fields (incl. hidden "form-name") to the site itself
+    const body = new URLSearchParams(new FormData(form));
+    const res = await fetch('/', {
       method: 'POST',
-      mode: 'no-cors',
-      body,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
       signal: ctl.signal
     });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
     formNote(CF[lang].ok.replace('{name}', name), false);
     form.reset();
   } catch (err) {

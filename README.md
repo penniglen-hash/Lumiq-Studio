@@ -15,7 +15,7 @@ Website der KI-Marketing-Agentur **LUMIQ STUDIO** – entstanden als Praxisproje
 | **One-Pager** (DE/EN umschaltbar) | eine einzige `index.html` – HTML, CSS, JavaScript, ohne Framework |
 | **ROI-Rechner** | JavaScript im Browser, Annahmen stellt der Besucher selbst ein |
 | **Termin buchen** | **Cal.com** (Embed, lädt erst nach Klick), verbunden mit Google Calendar |
-| **Kontaktformular** | Website → **n8n**-Webhook → KI + Gmail-Automation |
+| **Kontaktformular** | **Netlify Forms** (kostenlos, mit E-Mail-Benachrichtigung) |
 | **Newsletter** | Website → **Supabase** (Postgres, Row Level Security) |
 | **Rechtliches** | Impressum, Datenschutz, Cookie-Banner, AGB (Platzhalter) |
 
@@ -23,7 +23,7 @@ Website der KI-Marketing-Agentur **LUMIQ STUDIO** – entstanden als Praxisproje
 
 ```
                      ┌─────────────► Cal.com (Termine)
-Besucher ─► index.html ─┼─► n8n Webhook ─► KI + Gmail (Kontakt)
+Besucher ─► index.html ─┼─► Netlify Forms ─► E-Mail (Kontakt)
                         └─► Supabase REST ─► newsletter_subscribers
 ```
 
@@ -44,7 +44,7 @@ supabase/newsletter.sql            Tabelle + Sicherheitsregeln für den Newslett
 2. **Supabase:** `supabase/newsletter.sql` im SQL Editor ausführen; Project URL und
    *publishable key* in `index.html` (`SUPABASE_URL`, `SUPABASE_PUBLIC_KEY`) eintragen.
 3. **Cal.com:** eigenen Buchungslink in `index.html` (`CAL_LINK`) eintragen.
-4. **Kontaktformular:** eigene n8n-Webhook-URL in `index.html` (`N8N_WEBHOOK_URL`) eintragen.
+4. **Kontaktformular:** in Netlify unter *Forms* die Formular-Erkennung aktivieren und eine E-Mail-Benachrichtigung einrichten.
 
 ## Design
 
