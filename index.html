@@ -257,40 +257,6 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .calc-result .btn{margin-top:24px}
 .disclaimer{font-size:13px;color:var(--text-soft);margin-top:18px}
 
-/* AI post generator (OpenRouter via n8n) */
-.gen-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:start}
-.gen-grid>*{min-width:0}
-.gen .gcard:hover{transform:none}
-.seg{display:flex;flex-wrap:wrap;gap:8px}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg label{font-weight:500;font-size:14.5px;padding:9px 14px;border-radius:10px;border:1px solid var(--border-strong);cursor:pointer;color:var(--text);transition:all .2s}
-.seg input:checked+label{background:var(--violet);border-color:var(--violet);color:#fff;box-shadow:0 0 18px -4px rgba(102,88,217,.9)}
-.seg input:focus-visible+label{outline:3px solid var(--lavender);outline-offset:2px}
-.seg-label{display:block;font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text);letter-spacing:.02em}
-.g-note{font-size:13.5px;color:var(--text-soft);margin-top:14px}
-.g-status{display:flex;align-items:center;gap:10px;font-size:14px;padding:11px 14px;border-radius:12px;margin-bottom:16px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
-.g-status i{width:9px;height:9px;border-radius:50%;background:var(--lavender);flex-shrink:0}
-.g-status.busy i{animation:gpulse 1.1s infinite}
-.g-status.err{border-color:rgba(255,156,156,.45);background:rgba(255,156,156,.08)}
-.g-status.err i{background:#FF9C9C}
-@keyframes gpulse{50%{opacity:.2}}
-.g-empty{text-align:center;color:var(--text-soft);padding:36px 12px}
-.g-empty svg{width:56px;height:56px;margin:0 auto 14px}
-.g-label{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lavender);margin:20px 0 10px}
-.g-label:first-child{margin-top:0}
-.g-post{white-space:pre-wrap;background:rgba(11,15,34,.6);border:1px solid var(--border);border-radius:14px;padding:18px;font-size:16px;color:#fff;line-height:1.65;max-width:none}
-.g-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--text-soft)}
-.g-small{font:600 13.5px var(--ff-body);color:#fff;background:rgba(102,88,217,.35);border:1px solid var(--border-strong);border-radius:9px;padding:7px 12px;cursor:pointer}
-.g-small:hover{background:var(--violet)}
-.g-hooks{list-style:none;display:grid;gap:8px}
-.g-hooks li{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;color:var(--text)}
-.g-hooks li span{flex:1;min-width:0}
-.g-tags{display:flex;flex-wrap:wrap;gap:8px}
-.g-tags span{font-size:14px;color:var(--lavender);background:rgba(183,167,244,.1);border:1px solid var(--border);border-radius:999px;padding:4px 11px}
-.g-example{font-size:13px;color:var(--text-soft);font-style:italic;margin-bottom:12px}
-@media (max-width:980px){.gen-grid{grid-template-columns:1fr}}
-@media (max-width:600px){.gen .btn{width:100%}.g-hooks li{flex-direction:column}}
-
 /* Elements with the hidden attribute stay hidden even if a class sets display */
 [hidden]{display:none!important}
 
@@ -572,7 +538,7 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
     </a>
     <ul class="nav-links">
       <li><a href="#leistungen" data-i18n="nav1">Leistungen</a></li>
-      <li><a href="#generator" data-i18n="navGen">KI-Demo</a></li>
+      <li><a href="#ablauf" data-i18n="nav3">Ablauf</a></li>
       <li><a href="#rechner" data-i18n="nav4">ROI-Rechner</a></li>
       <li><a href="#gruenderin" data-i18n="nav5">Gr&#252;nderin</a></li>
       <li><a href="#preise" data-i18n="nav6">Preise</a></li>
@@ -592,7 +558,6 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
   </div>
   <nav class="mobile-menu" id="mobileMenu">
     <a href="#leistungen" data-i18n="nav1">Leistungen</a>
-    <a href="#generator" data-i18n="navGen">KI-Demo</a>
     <a href="#ablauf" data-i18n="nav3">Ablauf</a>
     <a href="#rechner" data-i18n="nav4">ROI-Rechner</a>
     <a href="#gruenderin" data-i18n="nav5">Gr&#252;nderin</a>
@@ -726,55 +691,6 @@ dialog::backdrop{background:rgba(5,7,18,.75);backdrop-filter:blur(4px)}
         <p data-i18n="s4">E-Mail-Flows, CRM-Prozesse und Reporting: weniger Routinearbeit, mehr Zeit f&#252;r Strategie.</p>
         <div class="tags"><span class="tag" data-i18n="s4t1">E-Mail-Flows</span><span class="tag">CRM</span><span class="tag">Reporting</span></div>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- AI POST GENERATOR: website -> n8n webhook -> OpenRouter (key stays in n8n) -->
-<section id="generator" class="s-navy gen">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Live-Demo</span>
-      <h2><span data-i18n="gTitleA">Probieren Sie es aus:</span> <span class="grad" data-i18n="gTitleB">KI-Post-Generator</span></h2>
-      <p class="lead" data-i18n="gLead">Thema, Zielgruppe und Tonalit&#228;t eingeben &#8211; die KI schreibt einen LinkedIn-Post-Entwurf nach den Markenregeln von LUMIQ. Sie pr&#252;fen und entscheiden.</p>
-    </div>
-    <div class="gen-grid">
-      <form class="gcard" id="genForm" novalidate>
-        <div class="form-field"><label for="gTopic" data-i18n="gTopicL">Thema des Posts *</label><textarea id="gTopic" maxlength="600" data-i18n-ph="gTopicPh" placeholder="z. B. Wie KI unserem Marketing-Team Routinearbeit abnimmt"></textarea></div>
-        <div class="form-field"><label for="gAudience" data-i18n="gAudL">Zielgruppe</label><input id="gAudience" maxlength="200" list="gAudList" data-i18n-ph="gAudPh" placeholder="z. B. Marketing-Verantwortliche in KMU">
-          <datalist id="gAudList"><option value="Marketing-Verantwortliche in KMU"><option value="Gr&#252;nderinnen und Gr&#252;nder von Start-ups"><option value="Corporate Marketing Teams"><option value="B2B-Vertrieb in der Industrie"></datalist>
-        </div>
-        <div class="form-field">
-          <span class="seg-label" data-i18n="gToneL">Tonalit&#228;t</span>
-          <div class="seg" role="radiogroup">
-            <input type="radio" name="gTone" id="gT1" value="professionell" checked><label for="gT1" data-i18n="gT1">Professionell</label>
-            <input type="radio" name="gTone" id="gT2" value="inspirierend"><label for="gT2" data-i18n="gT2">Inspirierend</label>
-            <input type="radio" name="gTone" id="gT3" value="locker und pers&#246;nlich"><label for="gT3" data-i18n="gT3">Locker</label>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" id="gGo" style="width:100%"><span id="gGoLabel" data-i18n="gGo">Post erstellen</span> <span class="arrow">&#8594;</span></button>
-        <p class="g-note" data-i18n="gNote">Kostenlose Demo mit begrenzter Anzahl an Anfragen pro Tag. Bitte keine vertraulichen Daten eingeben.</p>
-      </form>
-      <div class="gcard" aria-live="polite">
-        <div class="g-status" id="gStatus"><i></i><span id="gStatusText">Bereit. Geben Sie ein Thema ein und klicken Sie auf &#8222;Post erstellen&#8220;.</span></div>
-        <div class="g-empty" id="gEmpty">
-          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="10" width="48" height="44" rx="10" stroke="#B7A7F4" stroke-width="3"/><path d="M18 24h28M18 32h28M18 40h16" stroke="#6658D9" stroke-width="3" stroke-linecap="round"/></svg>
-          <span data-i18n="gEmpty">Hier erscheint Ihr Post-Entwurf.</span>
-          <div style="margin-top:16px"><button type="button" class="g-small" id="gExampleBtn" data-i18n="gExample">Beispiel ansehen</button></div>
-        </div>
-        <div id="gResult" hidden>
-          <p class="g-example" id="gExampleNote" hidden data-i18n="gExampleNote">Beispiel-Ergebnis &#8211; ohne KI-Aufruf.</p>
-          <p class="g-label" data-i18n="gPostL">Post-Entwurf</p>
-          <div class="g-post" id="gPost"></div>
-          <div class="g-meta"><span id="gCount"></span><button type="button" class="g-small" id="gCopy" data-i18n="gCopy">Post kopieren</button></div>
-          <div id="gExtras" hidden>
-            <p class="g-label" data-i18n="gHooksL">Alternative Hooks</p>
-            <ul class="g-hooks" id="gHooks"></ul>
-            <p class="g-label">Hashtags</p>
-            <div class="g-tags" id="gTags"></div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1281,13 +1197,6 @@ document.getElementById('bookBtn').addEventListener('click', loadCal);
 })();
 
 const EN = {
-  gTitleA:"Try it yourself:", gTitleB:"AI post generator",
-  gLead:"Enter a topic, audience and tone, and the AI writes a LinkedIn post draft following LUMIQ's brand rules. You review and decide.",
-  gTopicL:"Post topic *", gTopicPh:"e.g. How AI takes routine work off our marketing team", gAudL:"Audience", gAudPh:"e.g. Marketing leads in SMEs",
-  gToneL:"Tone", gT1:"Professional", gT2:"Inspiring", gT3:"Casual", gGo:"Create post",
-  gNote:"Free demo with a limited number of requests per day. Please don't enter confidential data.",
-  gEmpty:"Your post draft will appear here.", gExample:"See an example", gExampleNote:"Example result, no AI call.",
-  gPostL:"Post draft", gCopy:"Copy post", gHooksL:"Alternative hooks", navGen:"AI demo",
   bkEyebrow:"Book a call", bkTitleA:"Your free", bkTitleB:"initial call.",
   bkLead:"30 minutes by video, no obligation. Just pick a free slot and the invitation arrives automatically by email.",
   bkBtn:"Show available times", bkNote:"The calendar is loaded from Cal.com. Data is only transferred to Cal.com once you click (see privacy policy).",
@@ -1695,105 +1604,6 @@ $('cbNec').addEventListener('click', () => saveConsent(false));
 $('cbSet').addEventListener('click', () => $('cookies').showModal());
 $('ckSave').addEventListener('click', () => { saveConsent($('ckStatBox').checked); $('cookies').close(); });
 try { const c = JSON.parse(store.get('lumiq-consent')); if (c) $('ckStatBox').checked = !!c.statistics; } catch(e){}
-
-// ---------- AI post generator: website -> n8n -> OpenRouter ----------
-// The OpenRouter API key is stored in n8n (Credentials), never in this page.
-const N8N_GENERATOR_URL = "https://elenchik.app.n8n.cloud/webhook/lumiq-linkedin";
-const GEN = {
-  de:{ready:"Bereit. Geben Sie ein Thema ein und klicken Sie auf \u201EPost erstellen\u201C.", noTopic:"Bitte geben Sie zuerst ein Thema ein.",
-      busy:"Die KI schreibt Ihren Post \u2026 (ca. 10\u201340 Sekunden)", done:"Fertig! Bitte pr\u00FCfen Sie den Entwurf, bevor Sie ihn ver\u00F6ffentlichen.",
-      wait:"Bitte warten Sie einen Moment, bevor Sie den n\u00E4chsten Post erstellen.",
-      limit:"Die Demo ist gerade sehr gefragt (Tageslimit erreicht). Bitte versuchen Sie es sp\u00E4ter noch einmal.",
-      fail:"Der Generator ist gerade nicht erreichbar. Bitte versuchen Sie es sp\u00E4ter noch einmal.",
-      empty:"Die KI hat keinen Text geliefert. Bitte versuchen Sie es noch einmal.",
-      words:"W\u00F6rter", chars:"Zeichen", useHook:"Als Einstieg nutzen", hookOk:"\u00DCbernommen", copy:"Post kopieren", copyOk:"Kopiert!", busyBtn:"KI schreibt \u2026",
-      ex:{post:"Die besten Ideen entstehen nicht im Chatfenster.\n\nIn vielen Marketing-Teams frisst Routine die Zeit: Texte anpassen, Formate umbauen, Entw\u00FCrfe abstimmen. Genau hier kann KI helfen. Sie liefert erste Entw\u00FCrfe, Varianten und Struktur.\n\nWelche Botschaft zur Marke passt und was ver\u00F6ffentlicht wird, entscheiden Menschen.\n\nSo arbeiten wir bei LUMIQ STUDIO: KI \u00FCbernimmt Routine, das Team gewinnt Zeit f\u00FCr Strategie und Ideen.\n\nWie nutzt ihr KI aktuell im Marketing?",
-          hooks:["KI schreibt schneller \u2013 aber wer entscheidet, was gut ist?","Mehr Zeit f\u00FCr Ideen beginnt mit weniger Routine.","Unser wichtigstes KI-Tool ist immer noch das Team."],
-          tags:["#KIimMarketing","#ContentStrategie","#MenschUndKI"]}},
-  en:{ready:"Ready. Enter a topic and click \u201CCreate post\u201D.", noTopic:"Please enter a topic first.",
-      busy:"The AI is writing your post \u2026 (about 10\u201340 seconds)", done:"Done! Please review the draft before you publish it.",
-      wait:"Please wait a moment before creating the next post.",
-      limit:"The demo is very busy right now (daily limit reached). Please try again later.",
-      fail:"The generator can't be reached right now. Please try again later.",
-      empty:"The AI returned no text. Please try again.",
-      words:"words", chars:"characters", useHook:"Use as opening", hookOk:"Applied", copy:"Copy post", copyOk:"Copied!", busyBtn:"AI is writing \u2026",
-      ex:{post:"The best ideas don't start in a chat window.\n\nIn many marketing teams, routine eats the day: adapting copy, reformatting, aligning drafts. This is where AI helps. It delivers first drafts, variants and structure.\n\nWhich message fits the brand and what gets published is decided by people.\n\nThat's how we work at LUMIQ STUDIO: AI handles routine, the team gains time for strategy and ideas.\n\nHow are you using AI in marketing today?",
-          hooks:["AI writes faster. But who decides what's good?","More time for ideas starts with less routine.","Our most important AI tool is still the team."],
-          tags:["#AIinMarketing","#ContentStrategy","#HumanAndAI"]}}
-};
-let gState = {key:'ready', err:false}, gBusy = false, gLast = 0;
-function gStatus(key, err, kind){
-  gState = {key, err:!!err};
-  $('gStatus').className = 'g-status' + (kind ? ' ' + kind : (err ? ' err' : ''));
-  $('gStatusText').textContent = GEN[lang][key];
-}
-function gParse(text){
-  let t = String(text || '').replace(/\r/g, '');
-  // Some free models write their reasoning first: keep only the LAST "POST:" block (the final answer)
-  const posts = [...t.matchAll(/^[ \t]*\**POST:?\**[ \t]*$|^[ \t]*\**POST:\**/gmi)];
-  if (posts.length > 1) t = t.slice(posts[posts.length - 1].index);
-  const hi = t.search(/^\s*\**HOOKS:?\**/mi), ti = t.search(/^\s*\**HASHTAGS:?\**/mi);
-  const post = (hi >= 0 ? t.slice(0, hi) : t).replace(/^\s*\**POST:?\**\s*/i, '').replace(/\*\*/g, '').trim();
-  const hookPart = hi >= 0 ? t.slice(hi, ti >= 0 ? ti : undefined) : '';
-  const hooks = hookPart.split('\n').map(l => (l.match(/^\s*\d+[.)]\s*(.+)$/) || [])[1]).filter(Boolean).map(s => s.replace(/\*\*/g, '').trim());
-  const tags = ti >= 0 ? (t.slice(ti).match(/#[\p{L}\p{N}_]+/gu) || []) : [];
-  return {post, hooks, tags};
-}
-function gRender(r, isExample){
-  $('gEmpty').hidden = true; $('gResult').hidden = false; $('gExampleNote').hidden = !isExample;
-  $('gPost').textContent = r.post;
-  const w = r.post.split(/\s+/).filter(Boolean).length;
-  $('gCount').textContent = w + ' ' + GEN[lang].words + ' \u00B7 ' + r.post.length + ' ' + GEN[lang].chars;
-  $('gExtras').hidden = !(r.hooks.length || r.tags.length);
-  const ul = $('gHooks'); ul.innerHTML = '';
-  r.hooks.forEach(h => {
-    const li = document.createElement('li'), sp = document.createElement('span'), b = document.createElement('button');
-    sp.textContent = h; b.type = 'button'; b.className = 'g-small'; b.textContent = GEN[lang].useHook;
-    b.addEventListener('click', () => { const lines = $('gPost').textContent.split('\n'); lines[0] = h; $('gPost').textContent = lines.join('\n'); b.textContent = GEN[lang].hookOk; });
-    li.append(sp, b); ul.append(li);
-  });
-  const tg = $('gTags'); tg.innerHTML = '';
-  r.tags.forEach(x => { const s = document.createElement('span'); s.textContent = x; tg.append(s); });
-}
-$('genForm').addEventListener('submit', async e => {
-  e.preventDefault();
-  if (gBusy) return;
-  const topic = $('gTopic').value.trim();
-  if (!topic) { gStatus('noTopic', true); $('gTopic').focus(); return; }
-  if (Date.now() - gLast < 15000) { gStatus('wait', true); return; }
-  gLast = Date.now(); gBusy = true;
-  $('gGo').disabled = true; $('gGoLabel').textContent = GEN[lang].busyBtn;
-  gStatus('busy', false, 'busy');
-  const body = new URLSearchParams({ topic, audience: $('gAudience').value.trim(), tone: document.querySelector('input[name=gTone]:checked').value, lang });
-  const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 120000);
-  try {
-    let data = {};
-    for (let attempt = 1; attempt <= 2; attempt++) { // one automatic retry if a free model returns an empty answer
-      const res = await fetch(N8N_GENERATOR_URL, { method: 'POST', body, signal: ctl.signal });
-      data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      if (data.error || (data.text && String(data.text).trim())) break;
-    }
-    if (data.error) { gStatus(/rate|limit|429|quota/i.test(data.error) ? 'limit' : 'fail', true); return; }
-    if (!data.text || !data.text.trim()) { gStatus('empty', true); return; }
-    gRender(gParse(data.text), false);
-    gStatus('done');
-  } catch (err) {
-    console.warn('Generator failed:', err);
-    gStatus('fail', true);
-  } finally {
-    clearTimeout(timer); gBusy = false;
-    $('gGo').disabled = false; $('gGoLabel').textContent = lang === 'en' ? EN.gGo : $('gGoLabel').dataset.de;
-  }
-});
-$('gExampleBtn').addEventListener('click', () => { gRender(GEN[lang].ex, true); gStatus('ready'); });
-$('gCopy').addEventListener('click', async () => {
-  const b = $('gCopy');
-  try { await navigator.clipboard.writeText($('gPost').textContent); }
-  catch (_) { const r = document.createRange(); r.selectNodeContents($('gPost')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-  b.textContent = GEN[lang].copyOk; setTimeout(() => { b.textContent = GEN[lang].copy; }, 1500);
-});
-document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => { if (!gBusy) gStatus(gState.key, gState.err); }));
 
 setLang(store.get('lumiq-lang') === 'en' ? 'en' : 'de');
 </script>
